@@ -1,0 +1,4 @@
+FROM nginx:1.10
+EXPOSE 80
+
+EXPOSE 442

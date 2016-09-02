@@ -1,19 +1,25 @@
 {
-  "name": "seacat-react",
+  "name": "wepack-test",
   "version": "1.0.0",
-  "description": "seacat frontend ",
+  "description": "webpack-tests",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/foodcartel/seacat-react.git"
-  },
-  "author": "Chad Marciniak",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/foodcartel/seacat-react/issues"
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "http-server": "^0.9.0",
+    "jsx-loader": "^0.13.2",
+    "react": "^15.3.1",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0",
+    "webpack-livereload-plugin": "^0.8.2"
   },
-  "homepage": "https://github.com/foodcartel/seacat-react#readme"
+  "dependencies": {
+    "react-dom": "^15.3.1"
+  }
 }

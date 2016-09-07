@@ -4,6 +4,7 @@ var InputBar = React.createClass({
 		return (
 		<div id="InputBar">
       <input type="text"></input>
+			
 		</div>
 		);
 	}

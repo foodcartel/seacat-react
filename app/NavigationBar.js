@@ -4,7 +4,7 @@ var NavigationBar = React.createClass({
 		return (
 		<div id="NavigationBar">
       <div id="logo" class="container">
-      <a href="#">Seacat App</a>
+      <a href="#">Seacat App </a>
       </div>
 		</div>
 		);

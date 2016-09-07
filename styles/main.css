@@ -9,7 +9,52 @@ p {
   margin: 0;
 }
 
+/* App Component Styles -- can be considered base styles */
 #appComponent {
-  height:100vh;
-  width: 100vw;
+  border: 5px solid #0F0F0F;
+  background: #070707;
+
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#UserList {
+  border: 1px solid #262626;
+  background: #161616;
+  width: 215px;
+  height: 490px;
+  margin:3px;
+
+}
+
+#ChatPane {
+  border: 1px solid #262626;
+  background: #161616;
+  width: 715px;
+  height: 490px;
+  margin:3px;
+
+}
+
+#InputBar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+#InputBar input{
+  border: 1px solid #262626;
+  background: #161616;
+  margin:3px;
+  height: 33px;
+  color: #898989;
+  font-size: 14px;
+  padding: 3px;
+  width: 933px;
+
+
 }

@@ -22,10 +22,22 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loaders: ['react-hot', 'jsx'],
-	      exclude: /node_modules/
-      }
+	      exclude: /node_modules/,
+      },
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel',
+        query: {
+             presets: ['react']
+           },
+	      exclude: /node_modules/,
+      },
+      {
+        test: /\.(scss|css)$/,
+        loaders: ['style', 'css', 'sass']
+      },
     ]
   },
   plugins: [

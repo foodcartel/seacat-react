@@ -4,7 +4,7 @@ var InputBar = React.createClass({
 		return (
 		<div id="InputBar">
       <form id="MessageForm">
-			 <label className="input-inner-label" for="message">Message: </label>
+			 <label className="input-inner-label" htmlFor="message">Message: </label>
 				<input type="text" name="message"/>
 			</form>
 

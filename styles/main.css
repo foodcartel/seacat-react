@@ -1,12 +1,25 @@
+
 body {
   background-color: #1b1b1b;
   margin: 0;
   color: #f2f0f0;
-  font-family: sans-serif;
+  font-family: 'Hind Madurai', sans-serif;
 }
 
 p {
   margin: 0;
+}
+
+label {
+  color: #333333;
+  display: inline-block;
+  width: 8%;
+  padding:3px 0px 3px 3px;
+  text-align: left;
+}
+
+input {
+  outline: none;
 }
 
 /* App Component Styles -- can be considered base styles */
@@ -14,12 +27,6 @@ p {
   border: 5px solid #0F0F0F;
   background: #070707;
 
-}
-
-.chatContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
 }
 
 #UserList {
@@ -38,6 +45,10 @@ p {
   margin:3px;
 }
 
+#MessageForm {
+  width: 100%;
+}
+
 #InputBar {
   display: flex;
   flex-direction: row;
@@ -48,22 +59,6 @@ p {
   height: 33px;
 }
 
-label {
-  color: #333333;
-  display: inline-block;
-  width: 8%;
-  padding:3px 0px 3px 3px;
-  text-align: left;
-}
-
-input {
-  outline: none;
-}
-
-#MessageForm {
-  width: 100%;
-}
-
 #InputBar input{
   background: #161616;
   color: #898989;
@@ -72,4 +67,10 @@ input {
   border:none;
   box-sizing: border-box;
   width:90%
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }

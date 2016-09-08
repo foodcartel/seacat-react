@@ -3,6 +3,7 @@ var NavigationBar = require('./NavigationBar');
 var ChatPane = require('./ChatPane');
 var UserList = require('./UserList');
 var InputBar = require('./InputBar');
+var Socket = require('socket.io-client');
 
 var AppComponent = React.createClass({
 	getInitalState() {

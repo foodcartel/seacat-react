@@ -25,36 +25,51 @@ p {
 #UserList {
   border: 1px solid #262626;
   background: #161616;
-  width: 215px;
+  width: 20%;
   height: 490px;
   margin:3px;
-
 }
 
 #ChatPane {
   border: 1px solid #262626;
   background: #161616;
-  width: 715px;
+  width: 80%;
   height: 490px;
   margin:3px;
-
 }
 
 #InputBar {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-}
-
-#InputBar input{
   border: 1px solid #262626;
   background: #161616;
   margin:3px;
   height: 33px;
+}
+
+label {
+  color: #333333;
+  display: inline-block;
+  width: 8%;
+  padding:3px 0px 3px 3px;
+  text-align: left;
+}
+
+input {
+  outline: none;
+}
+
+#MessageForm {
+  width: 100%;
+}
+
+#InputBar input{
+  background: #161616;
   color: #898989;
   font-size: 14px;
-  padding: 3px;
-  width: 933px;
-
-
+  padding: 8px 3px 8px 0px;
+  border:none;
+  box-sizing: border-box;
+  width:90%
 }

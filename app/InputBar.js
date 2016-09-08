@@ -3,8 +3,11 @@ var InputBar = React.createClass({
 	render: function() {
 		return (
 		<div id="InputBar">
-      <input type="text"></input>
-			
+      <form id="MessageForm">
+			 <label className="input-inner-label" for="message">Message: </label>
+				<input type="text" name="message"/>
+			</form>
+
 		</div>
 		);
 	}

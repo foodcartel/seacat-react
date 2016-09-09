@@ -1,5 +1,5 @@
 var liveReleadPlugin = require('webpack-livereload-plugin');
-
+var path = require('path');
 function getEntrySource(source) {
   // if (process.env.NODE_ENV !== 'production') {
     source.push('webpack-dev-server/client?http://localhost:8080');
@@ -19,10 +19,11 @@ module.exports = {
     publicPath: 'http://localhost:8080/',
     filename: 'public/[name].js'
   },
+  resolve: { root: [__dirname + "/styles/css", __dirname + "/app/js"] },
   module: {
     loaders: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|css)$/,
         loaders: ['react-hot', 'jsx'],
 	      exclude: /node_modules/,
       },
@@ -35,12 +36,18 @@ module.exports = {
 	      exclude: /node_modules/,
       },
       {
-        test: /\.(scss|css)$/,
-        loaders: ['style', 'css', 'sass']
+        test: /\.(css)$/,
+        loaders:['style', 'css']
       },
     ]
   },
   plugins: [
     new liveReleadPlugin(),
-  ]
+  ],
+  resolve: {
+    modules: [
+      path.resolve('./app'),
+      path.resolve('./node_modules')
+    ]
+  },
 };

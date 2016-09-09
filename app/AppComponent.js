@@ -7,16 +7,19 @@ var Socket = require('socket.io-client');
 
 var AppComponent = React.createClass({
 	getInitalState() {
-		console.log(this.state);
-	 return {users: [], messages: []};
-	},
-
-	_initalize() {
-
+		return {users: [], messages: [], typing: false};
 	},
 
 	componentDidMount() {
-		console.log('componentDidMount');
+		this.socket = Socket.connect('http://127.0.0.1:3000');
+		this.socket.on('client-typing', function(event){
+			console.log('typing is being recieved', event.data);
+		});
+	},
+
+	handleInputChanged(event) {
+		console.log("handleInputChanged: ",event);
+		this.socket.emit('typing', {data: event});
 	},
 
 	render: function() {
@@ -26,7 +29,7 @@ var AppComponent = React.createClass({
 				<UserList/>
 				<ChatPane/>
 			</div>
-			<InputBar/>
+			<InputBar onTyping={this.handleInputChanged}/>
 		</div>
 		);
 	}

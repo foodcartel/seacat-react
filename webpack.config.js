@@ -39,6 +39,10 @@ module.exports = {
         test: /\.(css)$/,
         loaders:['style', 'css']
       },
+      {
+        test: /\.(png|jpg)$/,
+        loader: "file-loader?name=img/img-[hash:6].[ext]"
+      }
     ]
   },
   plugins: [

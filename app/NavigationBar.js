@@ -3,9 +3,8 @@ var NavigationBar = React.createClass({
 	render: function() {
 		return (
 		<div id="NavigationBar">
-      <div id="logo" class="container">
-      <a href="#">Seacat App </a>
-      </div>
+      <img className="logo-img" src="../assets/seacat-logo.png"/>
+			<h1>Seacat</h1>
 		</div>
 		);
 	}

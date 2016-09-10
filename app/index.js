@@ -3,4 +3,4 @@ var ReactDom = require('react-dom');
 var AppComponent = require('./AppComponent');
 require('./styles/main.css');
 
-ReactDom.render(<AppComponent/>, document.getElementById('SeacatApp'));
+ReactDom.render(<AppComponent />, document.getElementById('SeacatApp'));

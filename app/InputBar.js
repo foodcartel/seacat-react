@@ -7,11 +7,12 @@ var InputBar = React.createClass({
 	},
 
 	inputChanged: function(event) {
+		this.setState({ message: event.target.value});
 		 this.props.onTyping(event.target.value);
 	},
 
 	inputClicked: function(event) {
-		this.props.onPress('onpress');
+		this.props.onMessageSubmit(event);
 	},
 
 	render: function() {
@@ -20,7 +21,7 @@ var InputBar = React.createClass({
       <form id="MessageForm">
 				<label className="input-inner-label" htmlFor="message">Message: </label>
 				<input type="text" name="message" onChange={this.inputChanged}/>
-				<InputButton onClick={this.inputClicked}/>
+				<InputButton onPressed={this.inputClicked} />
 			</form>
 		</div>
 		);

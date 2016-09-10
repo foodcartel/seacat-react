@@ -1,24 +1,17 @@
 var React = require('react');
 
-class InputButton extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      clicked: false
-    };
+var InputButton = React.createClass({
 
-    this.handleClick = this.handleClick.bind(this);
-  }
+	inputClicked: function(event) {
+		console.log('clicked this shit');
+    this.props.onPressed(event);
+	},
 
-  handleClick() {}
-
-  handleHover() {}
-
-  render() {
-    return (
-      <div id="InputButton" onClick={this.handleClick} />
-    );
-  }
-}
+	render: function() {
+		return (
+		<div id="InputButton" onClick={this.inputClicked}></div>
+		);
+	}
+});
 
 module.exports = InputButton;

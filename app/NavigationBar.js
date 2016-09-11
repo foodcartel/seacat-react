@@ -1,6 +1,6 @@
 var React = require('react');
-var NavigationBar = React.createClass({
-	render: function() {
+class NavigationBar extends React.Component {
+	render () {
 		return (
 		<div id="NavigationBar">
       <img className="logo-img" src="../assets/seacat-logo.png"/>
@@ -8,6 +8,6 @@ var NavigationBar = React.createClass({
 		</div>
 		);
 	}
-});
+}
 
 module.exports = NavigationBar;

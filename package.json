@@ -26,6 +26,7 @@
     "webpack-livereload-plugin": "^0.8.2"
   },
   "dependencies": {
+    "momentjs": "^1.1.15",
     "react-dom": "^15.3.1",
     "socketio": "^1.0.0"
   }

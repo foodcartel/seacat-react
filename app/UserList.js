@@ -1,11 +1,11 @@
 var React = require('react');
-var UserList = React.createClass({
-	render: function() {
+class UserList extends React.Component {
+	render() {
 		return (
-		<div id="UserList">
-		</div>
+			<div id="UserList">
+			</div>
 		);
 	}
-});
+}
 
 module.exports = UserList;

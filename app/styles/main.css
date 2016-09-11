@@ -8,7 +8,10 @@ body {
 p {
   margin: 0;
 }
-
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
 h1 {
   font-size: 20px;
   padding-left: 1px;
@@ -104,4 +107,21 @@ input {
 
 #InputButton:hover {
   cursor: pointer;
+}
+
+#ChatMessage {
+  display: flex;
+  flex-direction: row;
+}
+
+.chat-message-user-name {
+  font-size: 18px;
+  color: #3A72B5;
+  padding-right: 6px;
+}
+
+.chat-message-text {
+  font-size: 14px;
+  color: #6D6D6D;
+  padding-top: 4px;
 }

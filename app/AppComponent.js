@@ -6,40 +6,44 @@ var UserList = require('./UserList');
 var InputBar = require('./InputBar');
 var Socket = require('socket.io-client');
 
-var AppComponent = React.createClass({
-	getInitalState() {
-		return {users: [], message: '', typing: false};
-	},
-
+class AppComponent extends React.Component {
+	constructor(props) {
+		super();
+		this.handleInputChanged = this.handleInputChanged.bind(this);
+		this.handleMessageSubmit = this.handleMessageSubmit.bind(this);
+		this.handleMessageRecieved = this.handleMessageRecieved.bind(this);
+		this.state = { users: {}, message: '', messages: ['hello friend.'], typing: false };
+	}
 	componentDidMount() {
 		this.socket = Socket.connect('http://127.0.0.1:3000');
-		this.socket.on('message-sent', function(socket) {
-			console.log('message sent: ', socket.data);
-		});
-	},
-
+		this.socket.on('message-sent', this.handleMessageRecieved);
+	}
 	handleInputChanged(event) {
 		this.setState({ message: event });
 		this.socket.emit('typing', {data: event});
-	},
-
+		this.setState({typing: true});
+	}
 	handleMessageSubmit(event) {
 		console.log('handleMessageSubmit', this.state.message);
 		this.socket.emit('message-submit', {data: this.state.message});
-	},
-
-	render: function() {
+	}
+	handleMessageRecieved(event) {
+		console.log("handleMessageRecieved: ", event.data);
+		this.setState({messages: this.state.messages.concat([event.data])});
+		console.log("Messages: ", this.state.messages);
+	}
+	render() {
 		return (
 		<div id="appComponent">
 			<NavigationBar/>
 			<div className="chatContainer">
 				<UserList/>
-				<ChatPane/>
+				<ChatPane typing={this.state.typing} messages={this.state.messages} />
 			</div>
-			<InputBar onMessageSubmit={this.handleMessageSubmit} onTyping={this.handleInputChanged}/>
+			<InputBar onMessageSubmit={this.handleMessageSubmit} onTyping={this.handleInputChanged} />
 		</div>
 		);
 	}
-});
+}
 
 module.exports = AppComponent;

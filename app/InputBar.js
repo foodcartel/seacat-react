@@ -19,9 +19,11 @@ class InputBar extends React.Component {
 		return (
 			<div id="InputBar">
 	      <form id="MessageForm">
-					<label className="input-inner-label" htmlFor="message">Message: </label>
-					<input type="text" ref="messageInput" name="message" onChange={this.inputChanged} />
-					<InputButton onPressed={this.inputClicked} />
+					<span>
+						<label className="input-inner-label" htmlFor="message">Message: </label>
+						<input type="text" ref="messageInput" name="message" onChange={this.inputChanged} />
+						<InputButton onPressed={this.inputClicked} />
+					</span>
 				</form>
 			</div>
 		);

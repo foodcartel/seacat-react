@@ -5,13 +5,14 @@ class ChatPane extends React.Component {
 		super(props);
 	}
 	render() {
+		let typingSpan;
+
 		return (
 			<div id="ChatPane">
 				{this.props.messages.map(function(message, index){
 									 return <ChatMessage key={index} message={message}/>;
-								 })}
-						<span>{this.props.typing}Is typing</span>
-					 </div>
+				})}
+			</div>
 		);
 	}
 }

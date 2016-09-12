@@ -8,6 +8,7 @@ class InputButton extends React.Component {
 			console.log('clicked this shit');
 	    this.props.onPressed(event);
 		}
+
 		render() {
 			return (
 				<div id="InputButton" onClick={this.inputClicked}></div>

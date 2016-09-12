@@ -6,6 +6,7 @@ class InputBar extends React.Component {
 		super();
 		this.inputClicked = this.inputClicked.bind(this);
 		this.inputChanged = this.inputChanged.bind(this);
+		this.keyPressed = this.keyPressed.bind(this);
 	}
 	inputChanged(event) {
 		this.setState({ message: event.target.value});
@@ -15,13 +16,19 @@ class InputBar extends React.Component {
 		this.props.onMessageSubmit(event);
 		this.refs.messageInput.value = '';
 	}
+	keyPressed(event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+			this.inputClicked();
+		}
+	}
 	render() {
 		return (
 			<div id="InputBar">
 	      <form id="MessageForm">
 					<span>
 						<label className="input-inner-label" htmlFor="message">Message: </label>
-						<input type="text" ref="messageInput" name="message" onChange={this.inputChanged} />
+						<input type="text" ref="messageInput" name="message" onChange={this.inputChanged} onKeyDown={this.keyPressed}/>
 						<InputButton onPressed={this.inputClicked} />
 					</span>
 				</form>

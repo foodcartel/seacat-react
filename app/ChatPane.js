@@ -1,5 +1,6 @@
-const React = require('react');
-const ChatMessage = require('./ChatMessage');
+import React from 'react';
+import ChatMessage from './ChatMessage';
+
 class ChatPane extends React.Component {
 	constructor(props) {
 		super(props);

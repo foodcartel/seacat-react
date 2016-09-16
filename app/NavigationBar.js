@@ -1,4 +1,5 @@
-var React = require('react');
+import React from 'react';
+
 class NavigationBar extends React.Component {
 	render () {
 		return (

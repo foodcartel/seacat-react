@@ -23,18 +23,19 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(js|jsx|css)$/,
-        loaders: ['react-hot', 'jsx'],
-	      exclude: /node_modules/,
-      },
-      {
         test: /\.(js|jsx)$/,
-        loader: 'babel',
-        query: {
-             presets: ['react']
-           },
+        loaders: ['react-hot', 'jsx', 'babel?presets[]=es2015&presets[]=react&presets[]=stage-0'],
 	      exclude: /node_modules/,
       },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   loader: 'babel',
+      //   exclude: /node_modules/,
+      //   query:
+      //   {
+      //     presets: ['es2015',"stage-0",'react'],
+      //   },
+      // },
       {
         test: /\.(css)$/,
         loaders:['style', 'css']

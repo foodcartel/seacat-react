@@ -1,5 +1,5 @@
 body {
-  background-color: #000;
+  background-color: #161616;
   margin: 0;
   color: #f2f0f0;
   font-family: 'Hind Madurai', sans-serif;
@@ -8,10 +8,12 @@ body {
 p {
   margin: 0;
 }
+
 h1, h2, h3, h4, h5 {
   margin: 0;
   padding: 0;
 }
+
 h1 {
   font-size: 20px;
   padding-left: 1px;
@@ -88,10 +90,12 @@ input {
   flex: 2;
   margin-top: 2px;
 }
+
 #InputBar span {
   display: inline-flex;
   width: 100%;
 }
+
 .chatContainer {
   display: flex;
   flex-direction: row;
@@ -116,6 +120,7 @@ input {
 #ChatMessage {
   display: flex;
   flex-direction: row;
+  padding: 6px 6px 6px 12px;
 }
 
 .chat-message-user-name {

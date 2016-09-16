@@ -1,4 +1,5 @@
-var React = require('react');
+import React from 'react';
+
 class ChatMessage extends React.Component {
 	constructor(props) {
 		super(props);

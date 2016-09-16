@@ -1,26 +1,26 @@
-var React = require('react');
-var InputButton = require('./InputButton');
+import React from 'react';
+import InputButton from './InputButton';
 
 class InputBar extends React.Component {
 	constructor(props) {
 		super();
-		this.inputClicked = this.inputClicked.bind(this);
-		this.inputChanged = this.inputChanged.bind(this);
-		this.keyPressed = this.keyPressed.bind(this);
 	}
-	inputChanged(event) {
+	inputChanged = (event) => {
 		this.setState({ message: event.target.value});
 		this.props.onTyping(event.target.value);
 	}
-	inputClicked(event) {
+	inputClicked = (event) => {
 		this.props.onMessageSubmit(event);
 		this.refs.messageInput.value = '';
 	}
-	keyPressed(event) {
+	keyPressed = (event) => {
 		if (event.keyCode === 13) {
 			event.preventDefault();
 			this.inputClicked();
 		}
+	}
+	inputFocus = (event) => {
+	 console.log(event);
 	}
 	render() {
 		return (
@@ -28,7 +28,7 @@ class InputBar extends React.Component {
 	      <form id="MessageForm">
 					<span>
 						<label className="input-inner-label" htmlFor="message">Message: </label>
-						<input type="text" ref="messageInput" name="message" onChange={this.inputChanged} onKeyDown={this.keyPressed}/>
+						<input type="text" ref="messageInput" name="message" autoComplete="off" onFocus={this.inputFocus} onChange={this.inputChanged} onKeyDown={this.keyPressed}/>
 						<InputButton onPressed={this.inputClicked} />
 					</span>
 				</form>

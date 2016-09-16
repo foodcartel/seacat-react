@@ -1,4 +1,5 @@
-var React = require('react');
+import React from 'react';
+
 class UserList extends React.Component {
 	render() {
 		return (

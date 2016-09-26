@@ -1,26 +1,25 @@
 import React from 'react';
+import Socket from 'socket.io-client';
+import ChatWindowHeader from './ChatWindowHeader';
 import ChatPane from './ChatPane';
 import UserList from './UserList';
 import InputBar from './InputBar';
 
-class ChatContainer extends React.Component {
-  constructor(props) {
+class ChatWindow extends React.Component {
+  constructor() {
     super();
     this.state = {
-      // users: {},
-      // message: '',
-      // messages: ['hello friend...'],
-      // typing: false
     };
   }
+
   componentDidMount() {
-    // this.socket = Socket.connect('http://127.0.0.1:3000');
-    // this.socket.on('message-sent', this.handleMessageRecieved);
+     this.socket = Socket.connect('http://127.0.0.1:3000');
   }
 
   render() {
     return (
-      <div id="appComponent">
+      <div id="ChatWindow">
+        <ChatWindowHeader></ChatWindowHeader>
         <div className="chatContainer">
           <UserList/>
           <ChatPane typing={this.state.typing} messages={this.state.messages} />
@@ -31,4 +30,4 @@ class ChatContainer extends React.Component {
   }
 }
 
-module.exports = ChatContainer;
+module.exports = ChatWindow;

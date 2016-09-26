@@ -35,13 +35,27 @@ input {
 /* App Component Styles -- can be considered base styles */
 #appComponent {
   border: 5px solid #0F0F0F;
-  background: #070707;
+  background: #121212;
+  display: block;
+  height: 100vh;
 }
 
 #NavigationBar {
   display: flex;
   flex-direction: row;
   padding: 3px 6px 3px 6px;
+  border-bottom: 1px solid #262626;
+  background: #161616;
+}
+
+#ChatWindow {
+  width: 700px;
+  z-index: 1000;
+  position: absolute;
+  padding:3px;
+  top: 100px;
+  left: 200px;
+  border: 1px solid #262626;
 }
 
 .logo-img {
@@ -54,7 +68,7 @@ input {
   border: 1px solid #262626;
   background: #161616;
   width: 20%;
-  height: 490px;
+  height: 350px;
   margin:3px;
 }
 
@@ -62,7 +76,7 @@ input {
   border: 1px solid #262626;
   background: #161616;
   width: 80%;
-  height: 490px;
+  height: 350px;
   margin:3px;
 }
 
@@ -121,6 +135,14 @@ input {
   display: flex;
   flex-direction: row;
   padding: 6px 6px 6px 12px;
+}
+
+#ChatWindowHeader {
+ padding:1px 0px 1px 3px;
+}
+
+#ChatWindowHeader h3 {
+  color: #a3a3a3;
 }
 
 .chat-message-user-name {

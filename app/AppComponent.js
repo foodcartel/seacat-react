@@ -1,26 +1,25 @@
 import React from 'react';
 import NavigationBar from './NavigationBar';
-import ChatPane from './ChatPane';
-import ChatMessage from './ChatMessage';
-import UserList from './UserList';
-import InputBar from './InputBar';
-import Socket from 'socket.io-client';
+import ChatWindow from './ChatWindow';
+
 
 class AppComponent extends React.Component {
-	constructor(props) {
+
+  constructor() {
 		super();
 		this.state = {
-			users: {},
-			message: '',
-			messages: ['hello friend...'],
-			typing: false
+      // users: {},
+      // message: '',
+      // messages: ['hello friend...'],
+      // typing: false
 		};
 	}
+
 	componentDidMount() {
-		this.socket = Socket.connect('http://127.0.0.1:3000');
-		this.socket.on('message-sent', this.handleMessageRecieved);
+		// this.socket = Socket.connect('http://127.0.0.1:3000');
+		// this.socket.on('message-sent', this.handleMessageRecieved);
 	}
-	handleInputChanged = (event) => {
+	/* handleInputChanged = (event) => {
 		this.setState({ message: event });
 		this.socket.emit('typing', {data: event});
 		this.setState({typing: true});
@@ -33,16 +32,13 @@ class AppComponent extends React.Component {
 		console.log("handleMessageRecieved: ", event.data);
 		this.setState({messages: this.state.messages.concat([event.data])});
 		console.log("Messages: ", this.state.messages);
-	}
+	}*/
+
 	render() {
 		return (
 		<div id="appComponent">
 			<NavigationBar/>
-			<div className="chatContainer">
-				<UserList/>
-				<ChatPane typing={this.state.typing} messages={this.state.messages} />
-			</div>
-			<InputBar onMessageSubmit={this.handleMessageSubmit} onTyping={this.handleInputChanged} />
+		  <ChatWindow/>
 		</div>
 		);
 	}

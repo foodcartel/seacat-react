@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+     "jsx": true,
+   },
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "react/require-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": [ "error", {
+      "devDependencies": [ "**/*.test.js", "**/*.test.jsx", "./webpack.*js" ]
+    }],
+    "react/prefer-stateless-function": ["error", {
+      "ignorePureComponents": true
+    }]
+  }
+}

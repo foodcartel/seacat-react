@@ -1,6 +1,5 @@
 body {
   background-color: #161616;
-  margin: 0;
   color: #f2f0f0;
   font-family: 'Hind Madurai', sans-serif;
 }
@@ -14,13 +13,6 @@ h1, h2, h3, h4, h5 {
   padding: 0;
 }
 
-h1 {
-  font-size: 20px;
-  padding-left: 1px;
-  margin: 0;
-  color: #A3A3A3;
-}
-
 label {
   color: #cccccc;
   display: inline-block;
@@ -30,24 +22,41 @@ label {
 
 input {
   outline: none;
+  margin: 0;
+}
+
+button {
+  border: none;
+}
+
+.form-group {
+  margin: 0;
 }
 
 /* App Component Styles -- can be considered base styles */
 #appComponent {
   border: 5px solid #0F0F0F;
   background: #070707;
+  padding-bottom: 12px;
 }
 
 #NavigationBar {
   display: flex;
   flex-direction: row;
-  padding: 3px 6px 3px 6px;
+  padding: 6px 0px 6px 18px;
 }
 
 .logo-img {
   width: 24px;
   height: 21px;
   padding-top: 3px;
+}
+
+.navbar-h1 {
+  font-size: 20px;
+  padding: 2px 0px 0px 4px;
+  margin: 0;
+  color: #A3A3A3;
 }
 
 #UserList {
@@ -61,45 +70,32 @@ input {
 #ChatPane {
   border: 1px solid #262626;
   background: #161616;
-  width: 80%;
-  height: 490px;
+  min-width: 300px;
+  max-width: 100%;
+  min-height: 400px;
+  max-height: 1vh;
+  overflow-y: scroll;
   margin:3px;
-}
-
-#MessageForm {
-  width: 100%;
 }
 
 #InputBar {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
   border: 1px solid #262626;
   background: #161616;
   margin:3px;
-  height: 33px;
 }
 
-#InputBar input{
+#InputBar .inputBarText{
   background: #161616;
   color: #898989;
   font-size: 14px;
-  padding: 6px 3px 6px 6px;
   border:none;
-  box-sizing: border-box;
-  flex: 2;
   margin-top: 2px;
+  outline: none;
 }
 
-#InputBar span {
-  display: inline-flex;
-  width: 100%;
-}
-
-.chatContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+#InputBar .inputBarText:focus {
+  outline: none;
+  box-shadow: none;
 }
 
 #InputButton {
@@ -117,22 +113,18 @@ input {
   cursor: pointer;
 }
 
-#ChatMessage {
-  display: flex;
-  flex-direction: row;
-  padding: 6px 6px 6px 12px;
-}
-
 .chat-message-user-name {
   font-size: 18px;
   color: #3A72B5;
   padding-right: 6px;
+  float: left;
 }
 
 .chat-message-text {
   font-size: 14px;
   color: #6D6D6D;
   padding-top: 4px;
+  display: flex;
 }
 
 .typing-span-alert {

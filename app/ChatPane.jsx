@@ -1,12 +1,13 @@
 import React from 'react';
+import { Grid, Row } from 'react-bootstrap';
 import ChatMessage from './ChatMessage';
 
 const ChatPane = ({ messages }) =>
 (
-  <div id="ChatPane">
+  <Grid fluid={true} id="ChatPane">
     {messages.map((message, index) =>
       <ChatMessage key={index} message={message} />) /* eslint-disable-line no-array-index-key */ }
-  </div>
+  </Grid>
 );
 
 ChatPane.propTypes = {

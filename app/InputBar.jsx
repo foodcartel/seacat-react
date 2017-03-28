@@ -1,18 +1,31 @@
 import React from 'react';
+import { Row, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import Socket from 'socket.io-client';
 import InputButton from './InputButton';
 
 class InputBar extends React.Component {
-  inputChanged = (event) => {
-    if (event.target.value !== '') {
-      this.setState({ message: event.target.value });
-    }
-    this.props.onTyping(event.target.value);
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: '',
+    };
   }
 
-  inputClicked = (event) => {
-    if (this.messageInput.value !== '') {
-      this.props.onMessageSubmit(event);
-      this.messageInput.value = '';
+  componentDidMount() {
+    this.socket = Socket.connect('http://127.0.0.1:3000');
+  }
+
+  inputChanged = (event) => {
+    const msg = event.target.value;
+    this.setState({ message: msg });
+    this.socket.emit('typing', { data: msg });
+  }
+
+  inputClicked = () => {
+    if (this.state.message !== '') {
+      console.log('msg state: ', this.state.message);
+      this.socket.emit('message-submit', { data: this.state.message });
+      this.setState({ message: '' });
     }
   }
 
@@ -23,28 +36,32 @@ class InputBar extends React.Component {
     }
   }
 
-  inputFocus = (event) => {
-    console.log(event);
-  }
-
   render() {
     return (
-      <div id="InputBar">
-        <form id="MessageForm">
-          <span>
-            <label className="input-inner-label" htmlFor="message">Message: </label>
-            <input type="text" ref={(c) => { this.messageInput = c; }} name="message" autoComplete="off" onFocus={this.inputFocus} onChange={this.inputChanged} onKeyDown={this.keyPressed} />
-            <InputButton onPressed={this.inputClicked} />
-          </span>
-        </form>
-      </div>
+      <Row id="InputBar">
+        <Form horizontal id="MessageForm">
+          <FormGroup>
+            <Col xs={2} sm={1} className="input-inner-label"componentClass={ControlLabel}>Message: </Col>
+            <Col xs={9} sm={10}>
+              <FormControl
+                className="inputBarText"
+                type="text"
+                name="message"
+                autoComplete="off"
+                value={this.state.message}
+                onChange={this.inputChanged}
+                onKeyDown={this.keyPressed}
+              />
+            </Col>
+            <Col xs={1}>
+              <InputButton onPressed={this.inputClicked} />
+            </Col>
+          </FormGroup>
+        </Form>
+      </Row>
     );
   }
 }
 
-InputBar.propTypes = {
-  onTyping: React.PropTypes.func.isRequired,
-  onMessageSubmit: React.PropTypes.func.isRequired,
-};
-
+InputBar.propTypes = {};
 module.exports = InputBar;

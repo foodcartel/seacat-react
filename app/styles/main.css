@@ -1,5 +1,5 @@
 body {
-  background-color: #161616;
+  background-color: #000;
   color: #f2f0f0;
   font-family: 'Hind Madurai', sans-serif;
 }
@@ -20,6 +20,11 @@ label {
   text-align: left;
 }
 
+.input-inner-label {
+  padding: 7px 0px 0px 12px !important;
+  text-align: left !important;
+}
+
 input {
   outline: none;
   margin: 0;
@@ -34,16 +39,19 @@ button {
 }
 
 /* App Component Styles -- can be considered base styles */
-#appComponent {
-  border: 5px solid #0F0F0F;
+.chatWindow {
+  position: relative;
+  top: 50px;
+  border: 1px solid #0F0F0F;
   background: #070707;
-  padding-bottom: 12px;
+  padding: 12px;
 }
 
 #NavigationBar {
   display: flex;
   flex-direction: row;
-  padding: 6px 0px 6px 18px;
+  padding-left: 18px;
+  margin-bottom: 12px;
 }
 
 .logo-img {
@@ -58,7 +66,9 @@ button {
   margin: 0;
   color: #A3A3A3;
 }
-
+.inline-form-group {
+  margin: 0 !important;
+}
 #UserList {
   border: 1px solid #262626;
   background: #161616;
@@ -68,7 +78,7 @@ button {
 }
 
 #ChatPane {
-  border: 1px solid #262626;
+  border: 1px solid #202020;
   background: #161616;
   min-width: 300px;
   max-width: 100%;
@@ -76,10 +86,11 @@ button {
   max-height: 1vh;
   overflow-y: scroll;
   margin:3px;
+  padding: 12px;
 }
 
 #InputBar {
-  border: 1px solid #262626;
+  border: 1px solid #202020;
   background: #161616;
   margin:3px;
 }
@@ -89,22 +100,25 @@ button {
   color: #898989;
   font-size: 14px;
   border:none;
-  margin-top: 2px;
+  margin-top: 1px;
   outline: none;
+  padding-left: 0px;
 }
 
 #InputBar .inputBarText:focus {
   outline: none;
   box-shadow: none;
 }
-
+.inputBarTextContainer {
+  padding-left: 6px;
+}
 #InputButton {
   background: url('../../assets/submit-btn.png');
   background-repeat: no-repeat;
   width: 11px;
   height: 17px;
   float: right;
-  padding: 4px 4px;
+  padding: 4px 12px;
   margin: 10px 3px 0px 3px;
   display: inline-block;
 }

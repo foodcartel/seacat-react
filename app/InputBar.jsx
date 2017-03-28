@@ -40,9 +40,9 @@ class InputBar extends React.Component {
     return (
       <Row id="InputBar">
         <Form horizontal id="MessageForm">
-          <FormGroup>
+          <FormGroup className="inline-form-group">
             <Col xs={2} sm={1} className="input-inner-label"componentClass={ControlLabel}>Message: </Col>
-            <Col xs={9} sm={10}>
+            <Col xs={9} sm={10} className="inputBarTextContainer">
               <FormControl
                 className="inputBarText"
                 type="text"

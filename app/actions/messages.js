@@ -1,5 +1,4 @@
-export const ADD_MESSAGE = 'add-message';
-
-export function addMessage(message) {
-  return { type: ADD_MESSAGE, message };
-}
+export const AddNewMessage = (data) => ({
+  type: 'ADD_MESSAGE',
+  message: data
+});

@@ -1,7 +1,16 @@
-const React = require('react');
-const ReactDom = require('react-dom');
-const AppComponent = require('./AppComponent.jsx');
+import React from 'react';
+import ReactDom from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+// import thunk from 'redux-thunk';
+import messages from './reducers/messages';
+import AppComponent from './AppComponent';
 
+const store = createStore(messages);
 require('./styles/main.css');
 
-ReactDom.render(<AppComponent />, document.getElementById('SeacatApp'));
+ReactDom.render(
+  <Provider store={store}>
+    <AppComponent />
+  </Provider>
+  , document.getElementById('SeacatApp'));

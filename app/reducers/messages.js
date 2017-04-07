@@ -1,27 +1,19 @@
-import { ADD_MESSAGE } from '../actions/messages';
+import { List } from 'immutable';
 
-export default function (initialState) {
-  return (state = initialState, action) => {
-    let messages;
+const initialState = {
+  messages: List(['Hello Friend...']),
+};
 
-    switch (action.type) {
-      case ADD_MESSAGE: {
-        const text = state.currentMessage.trim();
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'ADD_MESSAGE':
+      return {
+        ...state,
+        messages: state.messages.push(action.message),
+      };
+    default:
+      return state;
+  }
+};
 
-        if (text) {
-          messages = state.messages.map(message => Object.assign({}, message));
-          messages.push({ text });
-
-          return {
-            messages,
-            currentMessage: '',
-          };
-        }
-        break;
-      }
-      default: {
-        return state;
-      }
-    }
-  };
-}
+export default reducer;

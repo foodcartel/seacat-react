@@ -1,30 +1,27 @@
 import React from 'react';
 import { Row, Col, Form, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import Socket from 'socket.io-client';
+import { connect } from 'react-redux';
+import Sockets from './socket';
 import InputButton from './InputButton';
 
 class InputBar extends React.Component {
   constructor(props) {
     super(props);
+    this.sockets = new Sockets();
     this.state = {
       message: '',
     };
   }
 
-  componentDidMount() {
-    this.socket = Socket.connect('http://127.0.0.1:3000');
-  }
-
   inputChanged = (event) => {
     const msg = event.target.value;
     this.setState({ message: msg });
-    this.socket.emit('typing', { data: msg });
+    this.sockets.detectChange(msg);
   }
 
   inputClicked = () => {
     if (this.state.message !== '') {
-      console.log('msg state: ', this.state.message);
-      this.socket.emit('message-submit', { data: this.state.message });
+      this.sockets.submitMessage(this.state.message);
       this.setState({ message: '' });
     }
   }
@@ -64,4 +61,4 @@ class InputBar extends React.Component {
 }
 
 InputBar.propTypes = {};
-module.exports = InputBar;
+module.exports = connect()(InputBar);

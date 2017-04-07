@@ -43,6 +43,7 @@ module.exports = {
     root: [path.join(__dirname, '/styles/css'), path.join(__dirname, '/app/js')],
     modules: [
       path.resolve('./app'),
+      path.resolve('./app/reducers'),
       path.resolve('./node_modules'),
     ],
   },

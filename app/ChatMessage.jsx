@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const ChatMessage = ({ message }) =>
   <Row id="ChatMessage">
@@ -8,7 +9,8 @@ const ChatMessage = ({ message }) =>
       <p className="chat-message-text">{message}</p>
     </Col>
   </Row>;
-ChatMessage.propTypes = { message: React.PropTypes.string };
-ChatMessage.defaultProps = { message: 'Hello Friend...' };
+
+ChatMessage.propTypes = { message: PropTypes.string };
+ChatMessage.defaultProps = { message: '' };
 
 export default ChatMessage;

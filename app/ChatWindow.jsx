@@ -4,17 +4,11 @@ import NavigationBar from './NavigationBar';
 import ChatPane from './ChatPane';
 import InputBar from './InputBar';
 
+const ChatWindow = () =>
+  <Grid className="chatWindow">
+    <NavigationBar />
+    <ChatPane />
+    <InputBar />
+  </Grid>;
 
-class ChatWindow extends React.Component {
-  render() {
-    return (
-      <Grid className="chatWindow">
-        <NavigationBar />
-        <ChatPane />
-        <InputBar />
-      </Grid>
-    );
-  }
-}
-
-module.exports = ChatWindow;
+export default ChatWindow;

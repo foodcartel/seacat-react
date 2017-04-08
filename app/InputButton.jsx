@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputButton extends React.Component {
   constructor() {
@@ -8,7 +9,6 @@ class InputButton extends React.Component {
 
   inputClicked = (event) => {
     event.preventDefault();
-    console.log('inputClicked: ', event);
     this.props.onPressed(event);
   }
 
@@ -20,6 +20,7 @@ class InputButton extends React.Component {
 }
 
 InputButton.propTypes = {
-  onPressed: React.PropTypes.func.isRequired,
+  onPressed: PropTypes.func.isRequired,
 };
+
 module.exports = InputButton;

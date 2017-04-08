@@ -60,5 +60,4 @@ class InputBar extends React.Component {
   }
 }
 
-InputBar.propTypes = {};
 module.exports = connect()(InputBar);

@@ -30,8 +30,8 @@ class ChatPane extends React.Component {
     const { messages } = this.props;
     return (
       <Grid id="ChatPane">
-        { messages.map((message, index) => // @TODO need to add counter to reducer to shut up this lint issue
-          <ChatMessage key={index} message={message} />) /* eslint-disable-line no-array-index-key */
+        { messages.map(message =>
+          <ChatMessage key={message.id} message={message.text} />)
         }
       </Grid>
     );
@@ -39,7 +39,7 @@ class ChatPane extends React.Component {
 }
 
 ChatPane.propTypes = {
-  dispatch: PropTypes.func,
+  dispatch: PropTypes.func.isRequired,
   messages: PropTypes.shape(
     { message: PropTypes.string },
   ),
